@@ -12,18 +12,18 @@ public class Aluno {
 		this.nota = nota;
 		this.frequencia = frequencia;
 	}
-	
+
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
 
 	public double getNota() {
-		return this.nota;
+		return nota;
 	}
 
 	public int getFrequencia() {
-		return this.frequencia;
-	}	
+		return frequencia;
+	}
 
 	public boolean estaAprovado() {
 		return (
