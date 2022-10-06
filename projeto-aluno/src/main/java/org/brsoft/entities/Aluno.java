@@ -26,10 +26,7 @@ public class Aluno {
 	}
 
 	public boolean estaAprovado() {
-		return (
-				this.nota >= NOTA_MINIMA 
-				&& 
-				this.frequencia>=FREQUENCIA_MINIMA);
+		return (nota < NOTA_MINIMA || frequencia < FREQUENCIA_MINIMA ? false : true);
 	}
 
 }
