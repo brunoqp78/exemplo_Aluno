@@ -18,17 +18,43 @@ public class Aluno {
 		this.frequencia = frequencia;
 	}
 
+	
+
 	public String getNome() {
 		return nome;
 	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
 
 	public double getNota() {
 		return nota;
 	}
 
+
+
+	public void setNota(double nota) {
+		this.nota = nota;
+	}
+
+
+
 	public int getFrequencia() {
 		return frequencia;
 	}
+
+
+
+	public void setFrequencia(int frequencia) {
+		this.frequencia = frequencia;
+	}
+
+
 
 	public boolean estaAprovado() {
 		return (nota < NOTA_MINIMA || frequencia < FREQUENCIA_MINIMA ? false : true);
