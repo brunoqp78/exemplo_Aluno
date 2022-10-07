@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 public class AlunoTest {
 	
+	//CT01
 	@Test
 	public void testarConstrutorAlunoComDadosValidosEAlunoAprovado() {
 		//cenário de teste
@@ -41,6 +42,7 @@ public class AlunoTest {
 		Assertions.assertEquals(frequenciaValida, frequenciaObtida);
 	}
 	
+	//CT02
 	@Test
 	public void testarConstrutorAlunoComDadosValidosEAlunoReprovadoPorNota() {
 		//cenário de teste
@@ -64,6 +66,7 @@ public class AlunoTest {
 		Assertions.assertEquals(frequenciaValida, frequenciaObtida);
 	}
 	
+	//CT03
 	@Test
 	public void testarConstrutorAlunoComDadosValidosEAlunoReprovadoPorFrequencia() {
 		//cenário de teste
@@ -85,6 +88,40 @@ public class AlunoTest {
 		Assertions.assertEquals(nomeValido, nomeObtido);
 		Assertions.assertEquals(notaValida, notaObtida);
 		Assertions.assertEquals(frequenciaValida, frequenciaObtida);
-	}	
+	}		
+
+	//CT04
+	@Test
+	public void testarConstrutorAlunoComNomeInvalidoMenorDoisCaracteres() {
+		//cenário de teste
+		String nomeInvalido = "L";
+		double notaValida = 8.5; 
+		int frequenciaValida = 30;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeInvalido, notaValida, frequenciaValida);
+					}
+				);
+	}		
+	
+	//CT05
+	@Test
+	public void testarConstrutorAlunoComNomeInvalidoMaiorCemCaracteres() {
+		//cenário de teste
+		String nomeInvalido = "Laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 30;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeInvalido, notaValida, frequenciaValida);
+					}
+				);
+	}			
 	
 }
