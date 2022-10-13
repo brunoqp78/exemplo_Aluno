@@ -123,5 +123,73 @@ public class AlunoTest {
 					}
 				);
 	}			
+
+	//CT06
+	@Test
+	public void testarConstrutorAlunoComNotaInvalidaMenorZero() {
+		//cenário de teste
+		String nomeValido = "Laiane";
+		double notaInvalida = -0.01; 
+		int frequenciaValida = 75;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeValido, notaInvalida, frequenciaValida);
+					}
+				);
+	}		
+	
+	//CT07
+	@Test
+	public void testarConstrutorAlunoComNotaInvalidaMaiorDez() {
+		//cenário de teste
+		String nomeValido = "Laiane";
+		double notaInvalida = 10.01; 
+		int frequenciaValida = 75;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeValido, notaInvalida, frequenciaValida);
+					}
+				);
+	}		
+
+	//CT08
+	@Test
+	public void testarConstrutorAlunoComFrequenciaInvalidaMenorZero() {
+		//cenário de teste
+		String nomeValido = "Laiane";
+		double notaValida = 10; 
+		int frequenciaInvalida = -1;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeValido, notaValida, frequenciaInvalida);
+					}
+				);
+	}		
+	
+	//CT09
+	@Test
+	public void testarConstrutorAlunoComFrequenciaInvalidaMaiorCem() {
+		//cenário de teste
+		String nomeValido = "Laiane";
+		double notaValida = 10; 
+		int frequenciaInvalida = 101;
+				
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					Aluno a = new Aluno(nomeValido, notaValida, frequenciaInvalida);
+					}
+				);
+	}			
 	
 }
