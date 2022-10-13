@@ -13,61 +13,58 @@ public class Aluno {
 	private double nota;
 	private int frequencia;
 
-	public Aluno(String nome, double nota, int frequencia) {
-		if (nome.length() < LIMITE_INFERIOR_NOME || nome.length() > LIMITE_SUPERIOR_NOME) {
-			throw new IllegalArgumentException("O nome não pode ter menos de 2 caracteres e maior que 100 caracteres.");
-		}
-		if (nota < LIMITE_INFERIOR_NOTA || nota > LIMITE_SUPERIOR_NOTA) {
-			throw new IllegalArgumentException("O nota precisa ser um valor entre 0 e 10.");			
-		}
-		if (frequencia < LIMITE_INFERIOR_FREQUENCIA || frequencia > LIMITE_SUPERIOR_FREQUENCIA){
-			throw new IllegalArgumentException("A frequência precisa ser um valor entre 0 e 100.");			
-		}
-		this.nome = nome;
-		this.nota = nota;
-		this.frequencia = frequencia;
-	}
-
-	
+	public Aluno(String nome, double nota, int frequencia) {		
+		this.nome = validaNome(nome);
+		this.nota = validaNota(nota);
+		this.frequencia = validaFrequencia(frequencia);
+	}	
 
 	public String getNome() {
 		return nome;
 	}
 
-
-
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = validaNome(nome);
 	}
-
-
 
 	public double getNota() {
 		return nota;
 	}
 
-
-
-	public void setNota(double nota) {
-		this.nota = nota;
+	public void setNota(double nota) {		
+		this.nota = validaNota(nota);
 	}
-
-
 
 	public int getFrequencia() {
 		return frequencia;
 	}
 
-
-
-	public void setFrequencia(int frequencia) {
-		this.frequencia = frequencia;
+	public void setFrequencia(int frequencia) {		
+		this.frequencia = validaFrequencia(frequencia);
 	}
 
-
+	public static String validaNome(String nome) {
+		if (nome.length() < LIMITE_INFERIOR_NOME || nome.length() > LIMITE_SUPERIOR_NOME) {
+			throw new IllegalArgumentException("O nome não pode ter menos de 2 caracteres e maior que 100 caracteres.");
+		}
+		return nome;		
+	}
+	
+	public static double validaNota(double nota) {
+		if (nota < LIMITE_INFERIOR_NOTA || nota > LIMITE_SUPERIOR_NOTA) {
+			throw new IllegalArgumentException("O nota precisa ser um valor entre 0 e 10.");			
+		}
+		return nota;
+	}
+	
+	public static int validaFrequencia(int frequencia) {
+		if (frequencia < LIMITE_INFERIOR_FREQUENCIA || frequencia > LIMITE_SUPERIOR_FREQUENCIA){
+			throw new IllegalArgumentException("A frequência precisa ser um valor entre 0 e 100.");			
+		}
+		return frequencia;
+	}
 
 	public boolean estaAprovado() {
 		return (nota < NOTA_MINIMA || frequencia < FREQUENCIA_MINIMA ? false : true);
 	}
-
 }

@@ -191,5 +191,124 @@ public class AlunoTest {
 					}
 				);
 	}			
+
+	//CT10 - testar setNome
+	@Test
+	public void testarModificarAlunoComNomeInvalidoMenorDoisCaracteres() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		String nomeInvalido = "L";
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setNome(nomeInvalido);
+					}
+				);
+	}		
 	
+	//CT11 - testar setNome
+	@Test
+	public void testarModificarAlunoComNomeInvalidoMaiorCemCaracteres() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		String nomeInvalido = "Laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiane";
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setNome(nomeInvalido);
+					}
+				);
+	}		
+
+	//CT12 - testar setNota
+	@Test
+	public void testarModificarAlunoComNotaInvalidaMenorZero() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		double notaInvalida = -0.1; 
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setNota(notaInvalida);
+					}
+				);
+	}		
+
+	//CT13 - testar setNota
+	@Test
+	public void testarModificarAlunoComNotaInvalidaMaiorDez() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		double notaInvalida = 10.1; 
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setNota(notaInvalida);
+					}
+				);
+	}			
+	
+	//CT14 - testar setFrequencia
+	@Test
+	public void testarModificarAlunoComFrequenciaInvalidaMenorZero() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		int frequenciaInvalida = -1;
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setFrequencia(frequenciaInvalida);
+					}
+				);
+	}				
+
+	//CT15 - testar setFrequencia
+	@Test
+	public void testarModificarAlunoComFrequenciaInvalidaMaiorCem() {
+		//cenário de teste
+		//criar um objeto válido
+		String nomeValido = "Laiane";
+		double notaValida = 8.5; 
+		int frequenciaValida = 100;
+		Aluno a = new Aluno(nomeValido, notaValida, frequenciaValida);
+		
+		int frequenciaInvalida = 101;
+		//execução	
+		Assertions.assertThrows(
+				IllegalArgumentException.class, 
+				()->{
+					a.setFrequencia(frequenciaInvalida);
+					}
+				);
+	}				
 }
