@@ -67,4 +67,7 @@ public class Aluno {
 	public boolean estaAprovado() {
 		return (nota < NOTA_MINIMA || frequencia < FREQUENCIA_MINIMA ? false : true);
 	}
+
+	
+	
 }
